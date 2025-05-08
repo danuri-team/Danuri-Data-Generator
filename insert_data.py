@@ -19,9 +19,9 @@ data = generate_mock_data(count)
 # 1. company
 for c in data['company']:
     cursor.execute("""
-        INSERT INTO company (id, name, create_at)
+        INSERT INTO company (id, name, created_at)
         VALUES (%s, %s, %s)
-    """, (c['id'], c['name'], c['create_at']))
+    """, (c['id'], c['name'], c['created_at']))
 
 # 2. admin
 for a in data['admin']:
@@ -47,16 +47,16 @@ for s in data['space']:
 # 5. device
 for d in data['device']:
     cursor.execute("""
-        INSERT INTO device (id, company_id, device_id, role, create_at, end_at)
-        VALUES (%s, %s, %s, %s, %s, %s)
-    """, (d['id'], d['company_id'], d['device_id'], d['role'], d['create_at'], d['end_at']))
+        INSERT INTO device (id, company_id, role, created_at)
+        VALUES (%s, %s, %s, %s)
+    """, (d['id'], d['company_id'], d['role'], d['created_at']))
 
 # 6. user
 for u in data['user']:
     cursor.execute("""
-        INSERT INTO user (id, company_id, name, phone, age, sex, create_at, update_at)
+        INSERT INTO user (id, company_id, name, phone, age, sex, created_at, updated_at)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-    """, (u['id'], u['company_id'], u['name'], u['phone'], u['age'], u['sex'], u['create_at'], u['update_at']))
+    """, (u['id'], u['company_id'], u['name'], u['phone'], u['age'], u['sex'], u['created_at'], u['updated_at']))
 
 # 7. usage_history
 for uh in data['usage_history']:

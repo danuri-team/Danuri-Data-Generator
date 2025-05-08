@@ -22,7 +22,7 @@ def generate_mock_data(count: int):
         companies.append({
             'id': uuid_bin(),
             'name': fake.company(),
-            'create_at': now()
+            'created_at': now()
         })
 
     for _ in range(count):
@@ -64,10 +64,8 @@ def generate_mock_data(count: int):
             devices.append({
                 'id': uuid_bin(),
                 'company_id': random.choice(companies)['id'],
-                'device_id': uuid_bin(),
                 'role': random.choice(['ROLE_ADMIN', 'ROLE_DEVICE']),
-                'create_at': now(),
-                'end_at': now() + timedelta(days=random.randint(1, 10))
+                'created_at': now()
             })
 
     for _ in range(count):
@@ -76,8 +74,8 @@ def generate_mock_data(count: int):
             'company_id': random.choice(companies)['id'],
             'name': fake.first_name()[:20],
             'phone': fake.numerify('010-####-####'),
-            'create_at': now(),
-            'update_at': now(),
+            'created_at': now(),
+            'updated_at': now(),
             'age': random.choice(['ADULT', 'ELEMENTARY', 'HIGH', 'MIDDLE', 'OUT_OF_SCHOOL_YOUTH']),
             'sex': random.choice(['FEMALE', 'MALE'])
         })
