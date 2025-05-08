@@ -64,7 +64,7 @@ def generate_mock_data(count: int):
             devices.append({
                 'id': uuid_bin(),
                 'company_id': random.choice(companies)['id'],
-                'device_id': space_id,  # 고유한 space.id
+                'device_id': uuid_bin(),
                 'role': random.choice(['ROLE_ADMIN', 'ROLE_DEVICE']),
                 'create_at': now(),
                 'end_at': now() + timedelta(days=random.randint(1, 10))
